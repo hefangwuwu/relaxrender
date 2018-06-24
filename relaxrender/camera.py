@@ -18,8 +18,10 @@ class CameraBase:
         if pos is not None:
             self.pos[:,:] = pos
         if up is not None:
+            
             self.up = up / np.linalg.norm(up)
         if right is not None:
+            
             self.right = right / np.linalg.norm(right)
 
         if np.dot(self.up, self.right) > 1e-6:

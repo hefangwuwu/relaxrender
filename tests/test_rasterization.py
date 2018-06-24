@@ -22,10 +22,13 @@ class TestRasterization(unittest.TestCase):
                        rp.Vector.place_holder())
 
         tr1 = tri.Triangles()
+        
         tr1.add_triangle(tri.Triangle(p1, p2, p3))
 
         ctx = context.Context()
+        
         render = raster.SimpleRaster(ctx)
+        
         render.rasterize(tr1)
 
         #self.assertEqual(tr1.cindex, 1)

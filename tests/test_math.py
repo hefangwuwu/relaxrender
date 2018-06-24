@@ -6,7 +6,6 @@ from relaxrender.math import *
 from relaxrender.points import *
 from relaxrender.triangle import *
 
-
 class TestMath(unittest.TestCase):
 
     def test_dist(self):
@@ -22,10 +21,8 @@ class TestMath(unittest.TestCase):
 
         sample_size = int(1e6)
         res = sphere_sampling(sample_size)
-
         upper_count = np.sum(res[:,2] > 0.5)
         lower_count = np.sum(res[:,2] < -0.5)
-
         # test for the distributio is even on two side so the sphere.
         self.assertTrue(np.abs(upper_count-lower_count)/sample_size < 0.01 )
 

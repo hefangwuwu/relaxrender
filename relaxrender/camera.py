@@ -1,3 +1,4 @@
+
 #
 # This is about vertex transformation before rendering.
 #
@@ -17,8 +18,10 @@ class CameraBase:
 
         if pos is not None:
             self.pos[:,:] = pos
+            
         if up is not None:
             self.up = up / np.linalg.norm(up)
+            
         if right is not None:
             self.right = right / np.linalg.norm(right)
 
@@ -63,11 +66,13 @@ class PerspectiveCamera(CameraBase):
             input_y = np.random.random()*2 - 1
 
             real_x = np.tan(self.h_angle/2)*input_x
+            
             real_y = np.tan(self.v_angle/2)*input_y
 
             start_vector = Vector(Point3D(0, 0, 0),
                                   Point3D(real_x, real_y, -1))
             samples.append(start_vector)
+            
             xy.append((input_x, input_y))
         return samples, xy
 
